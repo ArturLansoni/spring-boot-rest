@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
+import javax.xml.ws.Response;
 
 @RestController
 @RequestMapping("students")
@@ -34,9 +34,14 @@ public class StudentEndpoint {
         return new ResponseEntity<>(student, HttpStatus.OK);
     }
 
+    @GetMapping(path = "/find-by-name/{name}")
+    public ResponseEntity<?> findByName(@PathVariable String name){
+        return new ResponseEntity<>(studentDAO.findByNameIgnoreCaseContaining(name), HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<?> save(@RequestBody Student student){
-        return new ResponseEntity<>(studentDAO.save(student), HttpStatus.OK);
+        return new ResponseEntity<>(studentDAO.save(student), HttpStatus.CREATED);
     }
 
     @DeleteMapping(path = "/{id}")
