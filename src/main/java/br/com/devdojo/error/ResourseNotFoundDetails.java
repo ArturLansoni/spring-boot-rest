@@ -1,6 +1,6 @@
 package br.com.devdojo.error;
 
-public class ResourseNotFoundDetails extends ErrorDetail {
+public class ResourseNotFoundDetails extends ErrorDetails {
     public static final class Builder {
         private String title;
         private int status;
