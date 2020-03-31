@@ -9,7 +9,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class JavaClientTest {
-    public void main(String[] args) {
+    public static void main(String[] args) {
         HttpURLConnection connection = null;
         BufferedReader reader = null;
         try {
