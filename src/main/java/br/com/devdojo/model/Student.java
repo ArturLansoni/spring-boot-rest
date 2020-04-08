@@ -5,12 +5,19 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-public class Student extends AbstractEntity{
+public class Student extends AbstractEntity {
     @NotEmpty(message = "The field name is required")
     private String name;
     @NotEmpty
-    @Email
+    @Email(message = "The field email is required")
     private String email;
+
+    public Student() {    }
+
+    public Student(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
 
     public String getName() {
         return name;
